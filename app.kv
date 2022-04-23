@@ -1,0 +1,48 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            Label:
+                text: 'Sort by:'
+            Spinner:
+                id: sort_selection
+                text: app.current_sort_field
+                values: app.sort_field_codes
+                on_text: app.sort_movies(self.text)
+            Label:
+                text: 'Add New Movie:'
+            Label:
+                text: 'Title:'
+            TextInput:
+                id: title
+                text: ''
+            Label:
+                text: 'Category:'
+            TextInput:
+                id: category
+                text: ''
+            Label:
+                text: 'Year:'
+            TextInput:
+                id: year
+            Button:
+                text: 'Add Movie'
+                on_release: app.press_add(title.text, category.text, year.text)
+            Button:
+                text: 'Clear'
+                on_release: app.press_clear()
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                size_hint_y: 0.1
+                text: app.top_status
+            GridLayout:
+                id: entries_box
+                cols: 1
+                orientation: 'lr-tb'
+            Label:
+                size_hint_y: 0.1
+                text: app.bottom_status
