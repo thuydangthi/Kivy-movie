@@ -1,2 +1,2 @@
 # Kivy-movie
-Instructions: run command on terminal: python main.py
+Instructions: run this command on the terminal: python main.py
